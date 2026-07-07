@@ -3,14 +3,14 @@ requires = ["setuptools>=61.0", "setuptools-scm>=8"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "python-script-template-package"
+name = "eq-files"
 dynamic = ["version"]
-description = "Python script template package"
+description = "Python script to check file equality"
 readme = "README.md"
 requires-python = ">=3.7"
 
 authors = [
-  { name = "Your Name", email = "your@email.com" }
+  { name = "Oleg Dudnik", email = "Oleggelo86@gmail.com" }
 ]
 
 dependencies = [
