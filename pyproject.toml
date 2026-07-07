@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-script-template-package"
+dynamic = ["version"]
+description = "Python script template package"
+readme = "README.md"
+requires-python = ">=3.7"
+
+authors = [
+  { name = "Your Name", email = "your@email.com" }
+]
+
+dependencies = [
+  # "requests>=2.0",
+]
+
+[project.scripts]
+template-add = "template_package.cmd:cmd_add"
+template-prod = "template_package.cmd:cmd_prod"
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "build"
+]
+
+[tool.setuptools.packages.find]
+include = ["template_package*"]
+
+[tool.setuptools.package-data]
+"*" = ["py.typed"]
+
+[tool.setuptools_scm]
