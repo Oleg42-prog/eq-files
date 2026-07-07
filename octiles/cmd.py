@@ -56,6 +56,10 @@ def help_command():
 
 
 def cmd():
+    if len(sys.argv) < 2:
+        help_command()
+        return
+
     command = sys.argv[1]
     arguments = sys.argv[2:]
     match command:
