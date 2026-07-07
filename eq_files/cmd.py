@@ -24,6 +24,15 @@ def is_eq_files(path_a: str, path_b: str) -> bool:
             return file_a.read() == file_b.read()
 
 
+def dedup_files(path_a: str, path_b: str) -> bool:
+    if not is_eq_files(path_a, path_b):
+        return False
+
+    os.remove(path_b)
+
+    return not os.path.exists(path_b)
+
+
 def cmd_is_eq_files():
     is_args_valid, file_path_a, file_path_b = parse_args()
     if not is_args_valid:
