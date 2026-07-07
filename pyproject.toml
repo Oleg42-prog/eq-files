@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "setuptools-scm>=8"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "eq-files"
+name = "octiles"
 dynamic = ["version"]
 description = "Python script to check file equality"
 readme = "README.md"
@@ -18,8 +18,7 @@ dependencies = [
 ]
 
 [project.scripts]
-eq-files = "eq_files.cmd:cmd_is_eq_files"
-dedup-files = "eq_files.cmd:cmd_dedup_files"
+octiles = "octiles.cmd:cmd"
 
 [project.optional-dependencies]
 dev = [
@@ -28,7 +27,7 @@ dev = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["eq_files*"]
+include = ["octiles*"]
 
 [tool.setuptools.package-data]
 "*" = ["py.typed"]
