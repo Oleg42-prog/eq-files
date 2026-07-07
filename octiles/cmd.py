@@ -33,15 +33,23 @@ def dedup_files(path_a: str, path_b: str) -> bool:
     return not os.path.exists(path_b)
 
 
-def cmd_is_eq_files():
+def eq_command(path_a: str, path_b: str):
     is_args_valid, file_path_a, file_path_b = parse_args()
     if not is_args_valid:
         return
     print(is_eq_files(file_path_a, file_path_b))
 
 
-def cmd_dedup_files():
+def dedup_command(path_a: str, path_b: str):
     is_args_valid, file_path_a, file_path_b = parse_args()
     if not is_args_valid:
         return
     print(dedup_files(file_path_a, file_path_b))
+
+
+def cmd():
+    command = sys.argv[1]
+    arguments = sys.argv[2:]
+    match command:
+        case 'dedup': dedup_command(*arguments)
+        case 'eq': eq_command(*arguments)
