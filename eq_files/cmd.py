@@ -2,10 +2,20 @@ import os
 import sys
 
 
-def parse_args() -> tuple[str, str]:
+def parse_args() -> tuple[bool, str, str]:
+    is_args_valid = True
     file_path_a = sys.argv[1]
     file_path_b = sys.argv[2]
-    return file_path_a, file_path_b
+
+    if not os.path.exists(file_path_a):
+        is_args_valid = False
+        print(f'Path file_path_a is not exists: {file_path_a}')
+
+    if not os.path.exists(file_path_b):
+        is_args_valid = False
+        print(f'Path file_path_b is not exists: {file_path_b}')
+
+    return is_args_valid, file_path_a, file_path_b
 
 
 def is_eq_files(path_a: str, path_b: str) -> bool:
@@ -15,13 +25,9 @@ def is_eq_files(path_a: str, path_b: str) -> bool:
 
 
 def cmd_is_eq_files():
-    file_path_a, file_path_b = parse_args()
-
-    if not os.path.exists(file_path_a):
-        print(f'Path file_path_a is not exists: {file_path_a}')
-
-    if not os.path.exists(file_path_b):
-        print(f'Path file_path_b is not exists: {file_path_b}')
+    is_args_valid, file_path_a, file_path_b = parse_args()
+    if not is_args_valid:
+        return
 
     result = is_eq_files(file_path_a, file_path_b)
     print(result)
