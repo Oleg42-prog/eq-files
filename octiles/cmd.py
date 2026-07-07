@@ -47,9 +47,18 @@ def dedup_command(path_a: str, path_b: str):
     print(dedup_files(file_path_a, file_path_b))
 
 
+def help_command():
+    print('octiles <command> <arguments>')
+    print('Command list:')
+    print('\t- eq <file_path_a> <file_path_b>')
+    print('\t- dedup <path_a> <path_b>')
+    print('\t- help')
+
+
 def cmd():
     command = sys.argv[1]
     arguments = sys.argv[2:]
     match command:
         case 'dedup': dedup_command(*arguments)
         case 'eq': eq_command(*arguments)
+        case _: help_command()
